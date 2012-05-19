@@ -7,25 +7,35 @@ class SpotsController < ApplicationController
       reference = url.sub('http://chack.s3.amazonaws.com/','').sub('.jpg','')
       tma += [{reference: reference, url: url}]
     end
-    
+
     render json: tma.sample
-    
+
   end
-  
+
+  def image
+    require 'open-uri'
+    
+    @spot = Spot.find(params[:id])
+    
+    file = open(@spot.url).read
+
+    return send_data file, :filename => "#{@spot.reference}.jpg", :type => 'image/jpeg', :disposition => 'inline'
+  end
+
   def random_sample
     require 'citizen_science'
     c = CitizenScience.new
     r = c.random_sample
-    
+
     # Find/Add a record for the new sample
     s = Spot.find_or_create_by_reference_and_url(r["reference"],r["url"])
-    redirect_to analyse_spot_path(s)
+    redirect_to spot_analyse_path(s)
   end
-  
+
   # The analysis page
   def analyse
     @spot = Spot.find(params[:id])
-    
+
   end
 
 

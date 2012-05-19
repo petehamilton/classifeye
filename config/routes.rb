@@ -3,9 +3,10 @@ Openlabs::Application.routes.draw do
   resources :spots
 
   root :to => 'site#index'
-  match 'spots/:id/analyse' => 'spots#analyse', :as => :analyse_spot
+  match 'spots/:id/analyse' => 'spots#analyse', :as => :spot_analyse
   get 'fake_random_sample' => 'spots#fake_random_sample'
   get 'random_sample' => 'spots#random_sample'
+  get 'spots/:id/image' => 'spots#image', :as => :spot_image
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
