@@ -1,6 +1,6 @@
 class SpotsController < ApplicationController
 
-  def random_sample
+  def fake_random_sample
     tma = []
     File.readlines("lib/assets/test_urls.txt").each do |line|
       url = line.strip
@@ -10,6 +10,16 @@ class SpotsController < ApplicationController
     
     render json: tma.sample
     
+  end
+  
+  def random_sample
+    require 'citizen_science'
+    c = CitizenScience.new
+    r = c.random_sample
+    
+    # Find/Add a record for the new sample
+    s = Spot.find_or_create_by_reference(r["reference"])
+    redirect_to analyse_spot_path(s)
   end
   
   # The analysis page
