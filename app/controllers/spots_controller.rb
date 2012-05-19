@@ -1,4 +1,18 @@
 class SpotsController < ApplicationController
+
+  def random_sample
+    tma = []
+    File.readlines("lib/assets/test_urls.txt").each do |line|
+      url = line.strip
+      reference = url.sub('http://chack.s3.amazonaws.com/','').sub('.jpg','')
+      tma += [{reference: reference, url: url}]
+    end
+    
+    render json: tma.sample
+    
+  end
+
+
   # GET /spots
   # GET /spots.json
   def index
