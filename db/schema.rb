@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120519110704) do
+ActiveRecord::Schema.define(:version => 20120519132407) do
 
   create_table "spots", :force => true do |t|
     t.string   "reference"
