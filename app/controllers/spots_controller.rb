@@ -14,6 +14,7 @@ class SpotsController < ApplicationController
   
   # The analysis page
   def analyse
+    @spot = Spot.find(params[:id])
     
   end
 
