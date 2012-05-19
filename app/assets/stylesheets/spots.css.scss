@@ -2,6 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .analysis_image {
+  display:block;
+  width:500px;
+  margin:0 auto;
+}
+
+.spot_image_container{
   display:none;
   width:500px;
+  height:500px;
+}
+
+.spot_image_loading{
+  background: url('loading.gif') center center no-repeat;
+  width:500px;
+  height:500px;
 }
