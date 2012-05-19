@@ -15,11 +15,18 @@ class SpotsController < ApplicationController
   def image
     @spot = Spot.find(params[:id])
     image = MiniMagick::Image.open(@spot.url)
-
+    
+    #Parameters
+    hue = 142
+    saturation = 72
+    lightness = -30
+    
     image.combine_options do |c|
+      #Invert
       c.level "90%,0"
-      # c.sample "50%"
-      # c.rotate "-90>"
+      
+      #HSL Modifications
+      c.modulate "#{hue},#{saturation},#{lightness}"
     end
     
     file = image.to_blob
