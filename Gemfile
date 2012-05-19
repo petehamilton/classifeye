@@ -33,3 +33,5 @@ gem 'sass'
 gem 'coffee-script'
 gem 'uglifier'
 gem 'httparty'
+
+gem 'mini_magick'

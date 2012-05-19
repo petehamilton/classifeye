@@ -13,10 +13,18 @@ class SpotsController < ApplicationController
   end
 
   def image
-    require 'open-uri'
-    
     @spot = Spot.find(params[:id])
-    file = Rails.cache.fetch("#{@spot.reference}.jpg") { open(@spot.url).read }
+    image = MiniMagick::Image.open(@spot.url)
+
+    image.combine_options do |c|
+      c.level "90%,0"
+      # c.sample "50%"
+      # c.rotate "-90>"
+    end
+    
+    file = image.to_blob
+    
+    # file = Rails.cache.fetch("#{@spot.reference}.jpg") { file.to_blob }
     send_data file, :filename => "#{@spot.reference}.jpg", :type => 'image/jpeg'
   end
 
