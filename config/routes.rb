@@ -3,6 +3,7 @@ Openlabs::Application.routes.draw do
   resources :spots
 
   root :to => 'site#index'
+  match 'spots/:id/analyse' => 'spots#analyse'
   get 'random_sample' => 'spots#random_sample'
   
   # The priority is based upon order of creation:

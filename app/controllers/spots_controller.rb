@@ -11,6 +11,11 @@ class SpotsController < ApplicationController
     render json: tma.sample
     
   end
+  
+  # The analysis page
+  def analyse
+    
+  end
 
 
   # GET /spots
