@@ -32,6 +32,11 @@ class SpotsController < ApplicationController
     redirect_to spot_analyse_path(s)
   end
 
+  def random_image
+    s = Spot.all.sample
+    redirect_to spot_image_path(s)
+  end
+
   # The analysis page
   def analyse
     @spot = Spot.find(params[:id])
