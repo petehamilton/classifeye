@@ -32,3 +32,4 @@ gem "haml"
 gem 'sass'
 gem 'coffee-script'
 gem 'uglifier'
+gem 'httparty'
