@@ -1,3 +1,17 @@
 // Place all the styles related to the site controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+  padding-top:39px;
+}
+
+#main_container .row{
+  min-height: 600px;
+}
+
+#main_container .row{
+  padding-top:25px;
+  padding-bottom:25px;
+  background: #eee;
+}
