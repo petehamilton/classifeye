@@ -18,7 +18,7 @@ class SpotsController < ApplicationController
     r = c.random_sample
     
     # Find/Add a record for the new sample
-    s = Spot.find_or_create_by_reference(r["reference"])
+    s = Spot.find_or_create_by_reference_and_url(r["reference"],r["url"])
     redirect_to analyse_spot_path(s)
   end
   
