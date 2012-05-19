@@ -16,10 +16,8 @@ class SpotsController < ApplicationController
     require 'open-uri'
     
     @spot = Spot.find(params[:id])
-    
-    file = open(@spot.url).read
-
-    return send_data file, :filename => "#{@spot.reference}.jpg", :type => 'image/jpeg', :disposition => 'inline'
+    file = Rails.cache.fetch("#{@spot.reference}") { open(@spot.url).read }
+    send_data file, :filename => "#{@spot.reference}.jpg", :type => 'image/jpeg'
   end
 
   def random_sample

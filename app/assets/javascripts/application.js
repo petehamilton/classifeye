@@ -13,4 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require pixastic.custom
+//= require images_loaded
+//= require spot
 //= require_tree .
