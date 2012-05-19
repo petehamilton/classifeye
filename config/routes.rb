@@ -3,6 +3,8 @@ Openlabs::Application.routes.draw do
   resources :spots
 
   root :to => 'site#index'
+  get 'random_sample' => 'spots#random_sample'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
