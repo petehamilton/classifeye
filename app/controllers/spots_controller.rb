@@ -42,12 +42,21 @@ class SpotsController < ApplicationController
   end
 
   def random_sample
-    require 'citizen_science'
-    c = CitizenScience.new
-    r = c.random_sample
-
+    # require 'citizen_science'
+    # c = CitizenScience.new
+    # r = c.random_sample
+    
+    rs = []
+    File.readlines("lib/assets/test_urls.txt").each do |line|
+      image = line.strip
+      # reference = url.sub('http://chack.s3.amazonaws.com/','').sub('.jpg','')
+      url = "http://www.inspiredpixel.net/openlabs/lowres/#{image}"
+      rs += [{reference: image.sub(".jpg", ""), url: url}]
+    end
+    
+    r = rs.sample
     # Find/Add a record for the new sample
-    s = Spot.find_or_create_by_reference_and_url(r["reference"],r["url"])
+    s = Spot.find_or_create_by_reference_and_url(r[:reference],r[:url])
     redirect_to spot_analyse_path(s)
   end
 
