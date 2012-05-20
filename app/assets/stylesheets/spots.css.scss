@@ -63,26 +63,55 @@ body{
 
 
 #button_row{
-  height: 150px;
+  height: 170px;
   background: url('background.png') repeat-x center bottom;
 }
 
 .feta_button{
-  height: 150px;
+  height: 170px;
   float:left;
 }
 
 #button_row{
-  .button_2{
+  .button_4{
     .feta_button{
-      width:360px;
+      width:169px;
       padding-left: 10px;
       padding-right: 10px;
-      border-right: 1px solid #999;
-      border-left: 1px solid #fff;
+      border-right: 2px solid #CCC;
+      border-left: 1px solid #FFF;
+      background: url('background.png') repeat-x center bottom;
+      cursor: pointer;
       
+      
+      .feta_button_content{
+        width:169px;
+        height: 170px;
+        background: url('buttonsprite.png') no-repeat 9px 16px;
+        
+        &.density_none{
+          background-position: 9px 16px;
+        }
+        
+        &.density_low{
+          background-position: -137px 16px;
+        }
+        
+        &.density_medium{
+          background-position: -291px 16px;
+        }
+        
+        &.density_high{
+          background-position: -461px 16px;
+        }
+      }
+
       &.right{
         border-right: none;
+      }
+      
+      &:hover{
+        background: url('background_inverse.png') repeat-x center bottom;
       }
     }
   }
@@ -90,4 +119,41 @@ body{
 
 body{
   padding-top: 0px;
+}
+
+#nav_title{
+  float: left;
+  display: block;
+  padding: 8px 20px 12px;
+  font-size: 20px;
+  font-weight: 200;
+  line-height: 1;
+  color: white;
+  margin-left: 117px;
+  width: 300px;
+  text-align: center;
+}
+
+#skip_button_row{
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-family: 'Valera Round';
+}
+
+#skip_dw{
+  line-height: 37px;
+  float: left;
+  font-size: 40px;
+  padding-left:10px;
+}
+#skip_button{
+  width: 251px;
+  height: 70px;
+  background: url('skip.jpg') repeat-x center bottom;
+  float:right;
+  margin-right: 10px;
+}
+
+.clear{
+  clear: both;
 }
