@@ -22,3 +22,37 @@
   background:#ccc;
   min-height: 20px;
 }
+
+body{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.navbar-fixed-top{
+  margin-left:0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+}
+
+#main_container .row{
+  padding-top: 0px;
+  min-height: auto;
+  margin-left: 0px;
+}
+
+#main_container{
+  margin-left: 0px;
+  width: 767px;
+}
+
+body{
+  padding-top: 45px;
+}
+
+#spot_image_container{
+  background: #000;
+}
+
+.navbar .navbar-fixed-top{
+  margin-bottom: 0px;
+}
