@@ -46,12 +46,19 @@ class SpotsController < ApplicationController
     # c = CitizenScience.new
     # r = c.random_sample
     
-    rs = []
+    spots = []
     File.readlines("lib/assets/test_urls.txt").each do |line|
-      image = line.strip
-      # reference = url.sub('http://chack.s3.amazonaws.com/','').sub('.jpg','')
-      url = "http://www.inspiredpixel.net/openlabs/lowres/#{image}"
-      rs += [{reference: image.sub(".jpg", ""), url: url}]
+      image = line.strip.sub(".jpg", "")
+      (0..24).each do |i|
+        spots += ["#{image}.split#{i}"]
+      end
+    end
+    
+    
+    rs = []
+    spots.each do |s|
+      url = "http://www.inspiredpixel.net/openlabs/split/#{s}.jpg"
+      rs += [{reference: s, url: url}]
     end
     
     r = rs.sample
