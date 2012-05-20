@@ -28,9 +28,9 @@
         </script>
 		<script src="/assets/magnify.js" type="text/javascript" charset="utf-8"></script>
 		
-<style type="text/css" media="screen">
+		<style type="text/css" media="screen">
 			body {
-				font-family: "Arial";
+				font-family: "Varela Round";
 				font-size: 80%;
 			}
 			#container {
@@ -38,7 +38,9 @@
 			}
 			#interface {
 				float: left;
-				padding: 10px;
+				padding: 0 20px;
+				height: 600px;
+				background: -webkit-linear-gradient(top, rgba(255,255,255,1) 1%,rgba(226,226,226,1) 100%);
 			}
 			#container canvas {
 				max-width: 500px;
@@ -50,15 +52,19 @@
 			.slider {
 				display: block;
 				margin-bottom: 40px;
+				padding-bottom: 20px;
 			}
 			input[type="range"] {
-				width: 500px;
+				width: 300px;
 			}
 			.labels {
 				clear: both;
 			}
 			.labels p {
+				text-transform: uppercase;
 				float: right;
+				font-size: 13px;
+				color: hsl(0, 0%, 45%);
 			}
 			.labels p:first-child {
 				float: left;
@@ -74,19 +80,22 @@
 			}
 			#intensity .preview {
 				background-repeat: no-repeat;
-				background-image: url("/assets/images/sliders/sprite.png");
-				width: 50px;
-				height: 50px;
+				background-image: url("/assets/sliders/sprite.png");
+				border: 1px solid gray;
+			}
+			#quantity .preview {
+				background-repeat: no-repeat;
+				background-image: url("/assets/sliders/sprite-quantity.jpg");
 			}
 			.preview {
 				width: 50px;
 				height: 50px;
 				position: relative;
 				left: 0px;
-				background: white;
 				/*border: 1px solid #333;*/
 				clear: left;
 				margin-bottom: 8px;
+				margin-top: -14px;
 			}
 			#menu {
 				position: absolute;
@@ -103,7 +112,6 @@
 				list-style: none;
 				color: #999;
 				border-bottom: 1px solid #ddd;
-				
 			}
 			#glass {
 				width: 200px;
@@ -117,10 +125,14 @@
 				background-color: white;
 			}
 			h1 {
-				margin: 0px 0 10px 0;
 				clear: both;
-				padding-top: 10px;
-				font-size: 20px;
+				font-size: 16px;
+				color: dimGray;
+				font-weight: normal;
+				margin: 0;
+				width: 282px;
+				margin-bottom: 25px;
+				margin-top: 20px;
 			}
 			input[type='range'] {
 				-webkit-appearance: none !important;
@@ -135,24 +147,31 @@
 				border-radius: 20px;
 				height: 20px;
 				width: 20px;
-				cursor:pointer;
+				cursor: pointer;
+			}
+			
+			#not-sure {
+				padding:10px;
+				margin:0;
+				background-color: #999;
+				color:#fff;
 			}
 
 		</style>
 	</head>
 	<body>
-		
 		<div id="container"></div>
 		<div id="interface">
 			<h1>How many cancer cells can you see?</h1>
 			<div id="quantity" class="slider" >
+				<div class="preview"></div>
 				<input type="range" min="0" max="1" value="0.5" step="0.01">
 				<div class="labels">
 					<p>
 						few
 					</p>
 					<p>
-						many
+						a lot
 					</p>
 				</div>
 			</div>
@@ -183,13 +202,13 @@
 				</div>
 			</div>
 			<div id="buttons">
-				<button id="not-sure">
-					Not sure
-				</button>
-				<button id="switch">
-					switch
-				</button>
-				<button id="ok" style="width:120px">
+				<p id="not-sure" style="float:left">
+					Not sure?
+				</p>
+				<!--<button id="switch">
+				switch
+				</button>-->
+				<button id="ok" style="width:120px" syle="float:left">
 					OK
 				</button>
 			</div>
