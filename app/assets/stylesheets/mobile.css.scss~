@@ -1,3 +1,3 @@
-footer {
+.footer {
 	background:url(footer.png);
 }
