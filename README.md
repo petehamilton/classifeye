@@ -34,7 +34,7 @@ So far we have explored
 - Mobile
   - iPhone/Android HTML App
 - Tablet
-  - iPad Web App which can be found [here](http://www.bit.ly/classifeye)
+  - iPad Web App which can be found [here](http://www.bit.ly/classifeye) (Looks good on iPads and pretty bad on everything else. There's only so much you can do in 2 days...)
 
 What's next?
 ============
