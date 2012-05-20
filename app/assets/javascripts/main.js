@@ -1,10 +1,12 @@
 var isIntensity = true;
-var colours = ["#7d5401", "#c39eff", "#1d1124"]
+var colours = ["#7d5401", "#c39eff", "#ffffff", "#796f8c"]
 var currentPreview;
 var imageDimensions = {
 	width : 1024,
 	height : 1023
 };
+
+var isSwitched = false;
 
 $(document).ready(function() {
 	//	setTimeout(function(){window.scrollTo(0,1)}, 100)
@@ -17,7 +19,10 @@ $(document).ready(function() {
 */
 	$("#back").hide();
 	
-
+	$("#switch").click(function() {
+		isSwitched = !isSwitched;
+		$(".preview", "#intensity").css("background-image", "url('/assets/images/sliders/sprite" +(isSwitched ? "negative":"")+".png')")
+	})
 	//$("#frequency").hide();
 	updateSlider($("input[type='range']", "#intensity"));
 	updateSlider($("input[type='range']", "#frequency"));
@@ -50,28 +55,30 @@ function updateSlider(slider) {
 		newX -= newX + (halfWidth * 2) - 500;
 	if(newX < 0)
 		newX = 0;
-	//log(newX + (halfWidth * 2) + " " + slider.val() * 500)
+	log(newX + (halfWidth * 2) + " " + slider.val() * 500)
 	currentPreview.css("left", newX + "px");
 
 	if(slider.parent().attr("id") == "frequency") {
 		drawSparness($("canvas", currentPreview)[0], slider.val());
 	} else {
-		//log(Math.round(slider.val()*4))
+		log(Math.round(slider.val()*4))
 		currentPreview.css("backgroundPosition", -50*Math.round(slider.val()*3), " 0")
 	}
 }
 
 function drawSparness(canvas, value) {
 	var ctx = canvas.getContext("2d");
-	//log(ctx)
+	log(ctx)
+	ctx.fillStyle = isSwitched ? "#000" : "#fff";
 	ctx.clearRect(0, 0, 50, 50);
 	ctx.strokeStyle = "#000000";
-	ctx.lineWidth = 2;
+	ctx.lineWidth = 1.5;
 	ctx.beginPath();
 	ctx.arc(25, 25, 18, 0, Math.PI * 2, true);
 	ctx.closePath();
 	ctx.stroke();
-
+	ctx.fill();
+	
 	var r = 24;
 	var r2 = r / 2;
 
@@ -93,12 +100,16 @@ function drawSparness(canvas, value) {
 	a = 5.4;
 	r = 10;
 	drawCircle(Math.cos(a) * r + 25, Math.sin(a) * r + 25, ctx, value > .8)
-	//log(value)
+	log(value)
 }
 
 function drawCircle(x, y, ctx, b) {
 	ctx.beginPath();
-	ctx.fillStyle = b ? colours[0] : colours[1];
+	if(b) {
+		ctx.fillStyle = colours[(isSwitched ? 2 : 0)];
+	} else {
+		ctx.fillStyle = colours[(isSwitched ? 3 : 1)];
+	}
 	ctx.arc(x, y, 3.5, 0, Math.PI * 2, true);
 	ctx.closePath();
 	ctx.fill();

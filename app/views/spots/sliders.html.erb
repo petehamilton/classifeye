@@ -6,6 +6,7 @@
 	            var img = $("<img/>");
 	            img.attr("id", "zoomParent");
 	            img.attr("src", "<%= spot_image_url(@spot) %>?t=<%= Time.now.to_i %>");
+	            img.attr("width", "600px");
 	            img.load(function() {
 		            $("#container").append($(this));
 		            document.getElementById("zoomParent").draggable = false;
@@ -18,6 +19,7 @@
 			            var y = evt.clientY;
 			            if(mouseDown) {
 				            moveMag(x, y);
+				            log(x + " " + y)
 			            }
 			            return false; 
 		            });
@@ -26,18 +28,17 @@
         </script>
 		<script src="/assets/magnify.js" type="text/javascript" charset="utf-8"></script>
 		
-		<style type="text/css" media="screen">
+<style type="text/css" media="screen">
 			body {
 				font-family: "Arial";
 				font-size: 80%;
 			}
 			#container {
-				float:left;
+				float: left;
 			}
-			
 			#interface {
-				float:left;
-				padding:10px;
+				float: left;
+				padding: 10px;
 			}
 			#container canvas {
 				max-width: 500px;
@@ -48,6 +49,7 @@
 			}
 			.slider {
 				display: block;
+				margin-bottom: 40px;
 			}
 			input[type="range"] {
 				width: 500px;
@@ -70,13 +72,11 @@
 			#buttons button:first-child {
 				float: left;
 			}
-			
 			#intensity .preview {
-				background-repeat:no-repeat;
-				background-image: url("images/sprite.png");
-				width:50px;
-				height:50px;
-				
+				background-repeat: no-repeat;
+				background-image: url("/assets/images/sliders/sprite.png");
+				width: 50px;
+				height: 50px;
 			}
 			.preview {
 				width: 50px;
@@ -86,6 +86,7 @@
 				background: white;
 				/*border: 1px solid #333;*/
 				clear: left;
+				margin-bottom: 8px;
 			}
 			#menu {
 				position: absolute;
@@ -102,6 +103,7 @@
 				list-style: none;
 				color: #999;
 				border-bottom: 1px solid #ddd;
+				
 			}
 			#glass {
 				width: 200px;
@@ -112,48 +114,83 @@
 				display: none;
 				background-repeat: no-repeat;
 				box-shadow: hsla(0, 0%, 47%, 0.699219) 0px 0px 10px;
-				background-color:white;
+				background-color: white;
+			}
+			h1 {
+				margin: 0px 0 10px 0;
+				clear: both;
+				padding-top: 10px;
+				font-size: 20px;
+			}
+			input[type='range'] {
+				-webkit-appearance: none !important;
+				border-radius: 10px;
+				background: #333;
+				height: 7px;
+			}
+			input[type='range']::-webkit-slider-thumb {
+				-webkit-appearance: none !important;
+				background: white;
+				box-shadow: hsla(0, 0%, 47%, 1) 0px 0px 5px;
+				border-radius: 20px;
+				height: 20px;
+				width: 20px;
+				cursor:pointer;
 			}
 
 		</style>
-
-		<div id="glass"></div>
+	</head>
+	<body>
+		
 		<div id="container"></div>
 		<div id="interface">
-		  
-		<div id="intensity" class="slider">
-			<div class="preview">
-				
-				
+			<h1>How many cancer cells can you see?</h1>
+			<div id="quantity" class="slider" >
+				<input type="range" min="0" max="1" value="0.5" step="0.01">
+				<div class="labels">
+					<p>
+						few
+					</p>
+					<p>
+						many
+					</p>
+				</div>
 			</div>
-			<input type="range" min="0" max="1" value="0.5" step="0.01">
-			<div class="labels">
-				<p>
-					weak
-				</p>
-				<p>
-					strong
-				</p>
+			<h1>What proportion of the cancer cells are stained?</h1>
+			<div id="frequency" class="slider" >
+				<div class="preview"></div>
+				<input type="range" min="0" max="1" value="0.5" step="0.01">
+				<div class="labels">
+					<p>
+						none
+					</p>
+					<p>
+						all
+					</p>
+				</div>
 			</div>
-		</div>
-		<div id="frequency" class="slider" >
-			<div class="preview"></div>
-			<input type="range" min="0" max="1" value="0.5" step="0.01">
-			<div class="labels">
-				<p>
-					few
-				</p>
-				<p>
-					many
-				</p>
+			<h1>How intense is the staining?</h1>
+			<div id="intensity" class="slider">
+				<div class="preview"></div>
+				<input type="range" min="0" max="1" value="0.5" step="0.01">
+				<div class="labels">
+					<p>
+						weak
+					</p>
+					<p>
+						strong
+					</p>
+				</div>
 			</div>
-		</div>
-		<div id="buttons">
-			<button id="not-sure">
-				Not sure
-			</button>
-			
-			<button id="ok" style="width:120px">
-				OK
-			</button>
-		</div>
+			<div id="buttons">
+				<button id="not-sure">
+					Not sure
+				</button>
+				<button id="switch">
+					switch
+				</button>
+				<button id="ok" style="width:120px">
+					OK
+				</button>
+			</div>
+			<div id="glass"></div>
