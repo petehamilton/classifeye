@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   private
   
   def mobile_device?
+    return true # Fake mobile device for now
     request.user_agent =~ /Mobile|webOS/
   end
   
