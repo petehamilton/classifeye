@@ -13,7 +13,7 @@ The basic idea is to take tumour micro array spots like this:
 
 ![TMA Spot](http://www.inspiredpixel.net/openlabs/lowres/ABC28_01_049_0_17_1.jpg "TMA Spot")
 
-Split them down into small samples like this:
+Split them down into small high resolution samples like this:
 
 ![Section of TMA Spot](http://www.inspiredpixel.net/openlabs/split/ABC28_01_049_0_17_1.split22.jpg "Section of TMA Spot")
 
