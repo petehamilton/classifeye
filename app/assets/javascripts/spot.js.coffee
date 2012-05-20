@@ -12,3 +12,6 @@ $(document).ready () ->
     $('#intensity_button_row').hide()
     $('#skip_button_row').hide()
     $('#thankyou').show()
+
+  $('#spot_image').click () ->
+    $('#spot_image').animate({ width: '100%' }, 1000)
