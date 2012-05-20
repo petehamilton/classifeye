@@ -18,4 +18,7 @@ $(document).ready () ->
 
   $('#spot_image').click () ->
     $('#spot_image').animate { width: nextWidth }, 1000, () ->
-      nextWidth = "75%"
+      if nextWidth == "75%"
+        nextWidth = "100%"
+      else
+        nextWidth = "75%"
