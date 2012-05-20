@@ -1,7 +1,23 @@
-<div id="spot_image_container" class="spot_image_container">
-  <img id="spot_image" class="analysis_image" src="<%= spot_image_url(@spot) %>?t=<%= Time.now.to_i %>" alt="A SPOT!"></img>
+<div class="span6">
+  <div id="spot_image_container" class="spot_image_container">
+    <img id="spot_image" class="analysis_image" src="<%= spot_image_url(@spot) %>?t=<%= Time.now.to_i %>" alt="<%=@spot.reference%>" title="<%=@spot.reference%>"></img>
+  </div>
 </div>
-
-<div id="spot_image_original_container" class="spot_image_container">
-  <img id="spot_image_original" class="analysis_image" src="<%= @spot.url %>?t=<%= Time.now.to_i %>" alt="A SPOT!"></img>
+<div class="span2" id="spot_questions">
+  <br/>
+  Button One
+  <br/>
+  <br/>
+</div>
+<div class="span2" id="spot_questions">
+  <br/>
+  Button Two
+  <br/>
+  <br/>
+</div>
+<div class="span2" id="spot_questions">
+  <br/>
+  Button Two
+  <br/>
+  <br/>
 </div>

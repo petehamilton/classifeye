@@ -3,18 +3,22 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .analysis_image {
   display:block;
-  width:500px;
+  width:100%;
   margin:0 auto;
 }
 
 .spot_image_container{
-//  display:none;
-  width:500px;
-  height:500px;
+  background: url('loading.gif') center center no-repeat;
+  margin-bottom:5px;
 }
 
-.spot_image_loading{
-  background: url('loading.gif') center center no-repeat;
-  width:500px;
-  height:500px;
+#spot_image_row{
+  margin-left: 25px;
+  padding: 5px;
+  background:#eee;
+}
+
+#spot_questions{
+  background:#ccc;
+  min-height: 20px;
 }
