@@ -8,6 +8,7 @@
 }
 
 .spot_image_container{
+  min-height: 480px;
   background: url('loading.gif') center center no-repeat;
 }
 
@@ -137,7 +138,8 @@ body{
 #skip_button_row{
   margin-top: 20px;
   margin-bottom: 10px;
-  font-family: 'Valera Round';
+  font-family: 'Myriad Pro';
+  color: #dc2a7e;
 }
 
 #skip_dw{
@@ -156,4 +158,14 @@ body{
 
 .clear{
   clear: both;
+}
+
+#thankyou{
+  font-family: 'Myriad Pro';
+  display:none;
+  padding-top:30px;
+  padding-bottom:20px;
+  padding-left: 20px;
+  font-size: 40px;
+  color: #dc2a7e;
 }
