@@ -9,12 +9,10 @@
 
 .spot_image_container{
   background: url('loading.gif') center center no-repeat;
-  margin-bottom:5px;
 }
 
 #spot_image_row{
   margin-left: 25px;
-  padding: 5px;
   background:#eee;
 }
 
@@ -55,4 +53,37 @@ body{
 
 .navbar .navbar-fixed-top{
   margin-bottom: 0px;
+}
+
+#main_container .row{
+  padding-top:25px;
+  padding-bottom:25px;
+  background: #eee;
+}
+
+
+#button_row{
+  height: 150px;
+  background: url('background.png') repeat-x center bottom;
+}
+
+.feta_button{
+  height: 150px;
+  float:left;
+}
+
+#button_row{
+  .button_2{
+    .feta_button{
+      width:360px;
+      padding-left: 10px;
+      padding-right: 10px;
+      border-right: 1px solid #999;
+      border-left: 1px solid #fff;
+      
+      &.right{
+        border-right: none;
+      }
+    }
+  }
 }
