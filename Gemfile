@@ -5,7 +5,6 @@ gem 'rails', '3.2.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 
 gem 'jquery-rails'
 
@@ -27,11 +26,22 @@ gem 'jquery-rails'
 # Additional Gems
 gem "twitter-bootstrap-rails"
 
+
+group :development, :test do
+  gem 'sqlite3'
+  gem "database_cleaner"
+
+  gem "jasmine", "~> 1"
+  gem "ruby-debug19"
+
+  gem "heroku"
+end
+
 # Make web-editing smoother
 gem "haml"
 gem 'sass'
 gem 'coffee-script'
 gem 'uglifier'
 gem 'httparty'
-
 gem 'mini_magick'
+gem 'pg'

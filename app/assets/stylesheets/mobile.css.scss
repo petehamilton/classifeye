@@ -11,8 +11,15 @@ body{
 
 #main_container .row{
   padding-top: 0px;
+  min-height: auto;
+  margin-left: 0px;
 }
 
-#main_container .row{
-  min-height: auto;
+#main_container{
+  margin-left: 0px;
+  width: 758px;
+}
+
+body{
+  padding-top: 45px;
 }

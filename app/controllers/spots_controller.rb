@@ -3,9 +3,10 @@ class SpotsController < ApplicationController
   def fake_random_sample
     tma = []
     File.readlines("lib/assets/test_urls.txt").each do |line|
-      url = line.strip
-      reference = url.sub('http://chack.s3.amazonaws.com/','').sub('.jpg','')
-      tma += [{reference: reference, url: url}]
+      image = line.strip
+      # reference = url.sub('http://chack.s3.amazonaws.com/','').sub('.jpg','')
+      url = "http://www.inspiredpixel.net/openlabs/lowres/#{image}"
+      tma += [{reference: image.sub(".jpg", ""), url: url}]
     end
     
     # ref = {reference: '20X_22004_49_256665F5-CB89-4114-8EDB-32F35B02A9CD', url: 'http://chack.s3.amazonaws.com/20X_22004_49_256665F5-CB89-4114-8EDB-32F35B02A9CD.jpg'}
