@@ -8,7 +8,7 @@
 }
 
 .spot_image_container{
-  min-height: 480px;
+  min-height: 497px;
   background: url('loading.gif') center center no-repeat;
 }
 
@@ -73,7 +73,7 @@ body{
   float:left;
 }
 
-#button_row{
+.button_row{
   .button_4{
     .feta_button{
       width:169px;
@@ -83,26 +83,48 @@ body{
       border-left: 1px solid #FFF;
       background: url('background.png') repeat-x center bottom;
       cursor: pointer;
-      
-      
-      .feta_button_content{
+
+
+      .density_button{
         width:169px;
         height: 170px;
         background: url('buttonsprite.png') no-repeat 9px 16px;
-        
+
         &.density_none{
           background-position: 9px 16px;
         }
-        
+
         &.density_low{
           background-position: -137px 16px;
         }
-        
+
         &.density_medium{
           background-position: -291px 16px;
         }
-        
+
         &.density_high{
+          background-position: -461px 16px;
+        }
+      }
+      
+      .intensity_button{
+        width:169px;
+        height: 170px;
+        background: url('int_buttonsprite.png') no-repeat 9px 16px;
+        
+        &.int_none{
+          background-position: 9px 16px;
+        }
+        
+        &.int_low{
+          background-position: -137px 16px;
+        }
+        
+        &.int_medium{
+          background-position: -291px 16px;
+        }
+        
+        &.int_high{
           background-position: -461px 16px;
         }
       }
@@ -110,7 +132,7 @@ body{
       &.right{
         border-right: none;
       }
-      
+
       &:hover{
         background: url('background_inverse.png') repeat-x center bottom;
       }
@@ -156,6 +178,14 @@ body{
   margin-right: 10px;
 }
 
+#next_button{
+  width: 266px;
+  height: 70px;
+  background: url('next.jpg') repeat-x center bottom;
+  float:right;
+  margin-top:-28px;
+}
+
 .clear{
   clear: both;
 }
@@ -168,4 +198,10 @@ body{
   padding-left: 20px;
   font-size: 40px;
   color: #dc2a7e;
+  margin-top: 15px;
+  padding-right: 10px;
+}
+
+#intensity_button_row{
+  display: none;
 }
