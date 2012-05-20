@@ -11,15 +11,15 @@ How does it work?
 
 The basic idea is to take tumour micro array spots like this:
 
-![TMA Spot](http://www.inspiredpixel.net/openlabs/lowres/ABC28_01_049_0_17_1.jpg "TMA Spot")
+<img src="http://www.inspiredpixel.net/openlabs/lowres/ABC28_01_049_0_17_1.jpg" width="400px" title="TMA Spot" alt="TMA Spot"/>
 
 Split them down into small high resolution samples like this:
 
-![Section of TMA Spot](http://www.inspiredpixel.net/openlabs/split/ABC28_01_049_0_17_1.split22.jpg "Section of TMA Spot")
+<img src="http://www.inspiredpixel.net/openlabs/split/ABC28_01_049_0_17_1.split22.jpg" width="400px" title="Section of TMA Spot" alt="Section of TMA Spot"/>
 
 Adjust the images to make them easier for the general public to read/classify like this:
 
-![Adjusted Section of TMA Spot](http://www.inspiredpixel.net/openlabs/ABC28_01_049_0_17_1.jpg "Adjusted Section of TMA Spot")
+<img src="http://www.inspiredpixel.net/openlabs/ABC28_01_049_0_17_1.jpg" width="400px" title="Adjusted Section of TMA Spot" alt="Adjusted Section of TMA Spot"/>
 
 Then ask the public some questions about the sample. Their responses can then be used in huge-scale aggregate form to provide statistically meaningful data.
 
