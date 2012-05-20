@@ -23,10 +23,13 @@ class SpotsController < ApplicationController
     lightness = -30
     
     image.combine_options do |c|
+      
       #Invert
       c.negate
+      
       #Level adjustments to remove unecessary details
       c.level "15%,80%"
+      
       #HSL Modifications
       c.modulate "#{hue},#{saturation},#{lightness}"
     end
