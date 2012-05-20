@@ -6,6 +6,7 @@
 	            var img = $("<img/>");
 	            img.attr("id", "zoomParent");
 	            img.attr("src", "<%= spot_image_url(@spot) %>?t=<%= Time.now.to_i %>");
+	            img.attr("width", "600px");
 	            img.load(function() {
 		            $("#container").append($(this));
 		            document.getElementById("zoomParent").draggable = false;
