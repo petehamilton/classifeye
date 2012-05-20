@@ -4,39 +4,21 @@
   </div>
 	<div id="spot_question">What's the density of the cell?</div>
 </div>
-<div class="row">	
-	<div id="density">
-		<div id="none"></div>
-		<div id="low"></div>
-		<div id="medium"></div>
-		<div id="high"></div>
-	</div>
+
+<hr/>
+
+<div id="density">
+	<img id="none" class="density_button" src="<%=image_path('analyse/none.png')%>"></img>
+	<img id="little" class="density_button" src="<%=image_path('analyse/little.png')%>"></img>
+	<img id="some" class="density_button" src="<%=image_path('analyse/some.png')%>"></img>
+	<img id="alot" class="density_button" src="<%=image_path('analyse/alot.png')%>"></img>
 </div>
-<div class="row">	
+
+<hr/>
 <div id="skip">
-		<div>
-			Can't tell? Don't worry! Why not try the next one...
-		</div>
-		<div id="skip_button"><a href="">Skip</a></div>
+	<div id="instruction">
+		Can't tell? Don't worry! Why not try the next one...
 	</div>
+	<div id="skip_button"><a href="">Skip</a><img src="<%=image_path('arrow.png')%>"></img></div>
 </div>
-<!--
-<div class="span2" id="spot_questions">
-  <br/>
-  Button One
-  <br/>
-  <br/>
-</div>
-<div class="span2" id="spot_questions">
-  <br/>
-  Button Two
-  <br/>
-  <br/>
-</div>
-<div class="span2" id="spot_questions">
-  <br/>
-  Button Two
-  <br/>
-  <br/>
-</div>
--->
+

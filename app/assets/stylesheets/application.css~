@@ -13,7 +13,3 @@
  *= require spots
  *= require bootstrap_and_overrides
 */
-
-html, body {
-	font-family: 'Varela Round', sans-serif;
-}

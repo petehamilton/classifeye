@@ -3,8 +3,6 @@ class SiteController < ApplicationController
   end
 	def dashboard
   end
-	def intro
-  end
 	def tutorial1
   end
 	def tutorial2

@@ -3,10 +3,20 @@ body{
   padding-right: 5px;
 }
 
+#brand {
+	text-align:center;
+}
+
 .navbar-fixed-top{
   margin-left:-5px;
   margin-right: -5px;
   margin-bottom: 5px;
+}
+
+#density {
+
+height:77px;
+
 }
 
 #main_container .row{
@@ -20,20 +30,28 @@ body{
 #spot_question{
 	background-color:black;
  	color: white;
+	text-align:center;
+	padding-bottom:10px;
 }
 
-.none{
-
+.density_button{
+	width:77px;
+	height:67px;
+	float:left;
 }
-.low{
 
+#instruction{
+	float:left;
+	width:70%;
 }
-.medium{
+#skip_button{
+	float:right;
+}
+#skip_button a, a:link, a:visited, a:hover, a:active{
+	ext-decoration: none;
+	color: #000;
+}
 
-}
-.high{
-
-}
 
 #footer {
 	background:url(footer.png);

@@ -8,11 +8,11 @@ Openlabs::Application.routes.draw do
   get 'spots/:id/image' => 'spots#image', :as => :spot_image
 
 get 'index' => 'site#dashboard'
-	get 'tutorial1' => 'site#tutorial_1'
-get 'tutorial2' => 'site#tutorial_2'
-get 'tutorial3' => 'site#tutorial_3'
-get 'tutorial4' => 'site#tutorial_4'
-get 'tutorial5' => 'site#tutorial_5'
+	get 'tutorial1' => 'site#tutorial1'
+get 'tutorial2' => 'site#tutorial2'
+get 'tutorial3' => 'site#tutorial3'
+get 'tutorial4' => 'site#tutorial4'
+get 'tutorial5' => 'site#tutorial5'
   
   
   get 'random_sample' => 'spots#random_sample'
