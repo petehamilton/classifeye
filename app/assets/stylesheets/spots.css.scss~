@@ -17,7 +17,8 @@
   background:#eee;
 }
 
-#spot_question{
+#spot_questions{
+  margin-left: 25px;
   background:#ccc;
   min-height: 20px;
 	padding: 5px;

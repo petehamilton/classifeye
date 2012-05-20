@@ -1,3 +1,36 @@
-footer {
+body{
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.navbar-fixed-top{
+  margin-left:-5px;
+  margin-right: -5px;
+  margin-bottom: 5px;
+}
+
+#main_container .row{
+  padding-top: 0px;
+}
+
+#main_container .row{
+  min-height: auto;
+}
+
+
+.none{
+
+}
+.low{
+
+}
+.medium{
+
+}
+.high{
+
+}
+
+#footer {
 	background:url(footer.png);
 }
