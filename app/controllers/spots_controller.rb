@@ -7,7 +7,8 @@ class SpotsController < ApplicationController
       reference = url.sub('http://chack.s3.amazonaws.com/','').sub('.jpg','')
       tma += [{reference: reference, url: url}]
     end
-
+    
+    # ref = {reference: '20X_22004_49_256665F5-CB89-4114-8EDB-32F35B02A9CD', url: 'http://chack.s3.amazonaws.com/20X_22004_49_256665F5-CB89-4114-8EDB-32F35B02A9CD.jpg'}
     render json: tma.sample
 
   end
