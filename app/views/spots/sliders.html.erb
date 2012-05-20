@@ -1,0 +1,159 @@
+		<script src="/assets/main.js" type="text/javascript" charset="utf-8"></script>
+        <script>
+
+            function next() {
+	            //load image
+	            var img = $("<img/>");
+	            img.attr("id", "zoomParent");
+	            img.attr("src", "<%= spot_image_url(@spot) %>?t=<%= Time.now.to_i %>");
+	            img.load(function() {
+		            $("#container").append($(this));
+		            document.getElementById("zoomParent").draggable = false;
+		            $("#glass").css("background-image", "url('<%= spot_image_url(@spot) %>?t=<%= Time.now.to_i %>')");
+		            currentCounter++;
+		
+		            $('#' + zoomImageID).bind('mousemove', function(event) {
+			            var evt = window.event;
+			            var x = evt.clientX;
+			            var y = evt.clientY;
+			            if(mouseDown) {
+				            moveMag(x, y);
+			            }
+			            return false; 
+		            });
+	            })
+            }
+        </script>
+		<script src="/assets/magnify.js" type="text/javascript" charset="utf-8"></script>
+		
+		<style type="text/css" media="screen">
+			body {
+				font-family: "Arial";
+				font-size: 80%;
+			}
+			#container {
+				float:left;
+			}
+			
+			#interface {
+				float:left;
+				padding:10px;
+			}
+			#container canvas {
+				max-width: 500px;
+			}
+			#buttons {
+				clear: both;
+				display: block;
+			}
+			.slider {
+				display: block;
+			}
+			input[type="range"] {
+				width: 500px;
+			}
+			.labels {
+				clear: both;
+			}
+			.labels p {
+				float: right;
+			}
+			.labels p:first-child {
+				float: left;
+			}
+			button {
+				padding: 10px;
+			}
+			#buttons button {
+				float: right;
+			}
+			#buttons button:first-child {
+				float: left;
+			}
+			
+			#intensity .preview {
+				background-repeat:no-repeat;
+				background-image: url("images/sprite.png");
+				width:50px;
+				height:50px;
+				
+			}
+			.preview {
+				width: 50px;
+				height: 50px;
+				position: relative;
+				left: 0px;
+				background: white;
+				/*border: 1px solid #333;*/
+				clear: left;
+			}
+			#menu {
+				position: absolute;
+				top: 52px;
+				background-color: white;
+			}
+			#menu ul {
+				padding: 0;
+				margin: 0;
+			}
+			#menu li {
+				padding: 15px 20px;
+				text-indent: 0;
+				list-style: none;
+				color: #999;
+				border-bottom: 1px solid #ddd;
+			}
+			#glass {
+				width: 200px;
+				height: 200px;
+				overflow: hidden;
+				position: absolute;
+				border-radius: 200px;
+				display: none;
+				background-repeat: no-repeat;
+				box-shadow: hsla(0, 0%, 47%, 0.699219) 0px 0px 10px;
+				background-color:white;
+			}
+
+		</style>
+
+		<div id="glass"></div>
+		<div id="container"></div>
+		<div id="interface">
+		  
+		<div id="intensity" class="slider">
+			<div class="preview">
+				
+				
+			</div>
+			<input type="range" min="0" max="1" value="0.5" step="0.01">
+			<div class="labels">
+				<p>
+					weak
+				</p>
+				<p>
+					strong
+				</p>
+			</div>
+		</div>
+		<div id="frequency" class="slider" >
+			<div class="preview"></div>
+			<input type="range" min="0" max="1" value="0.5" step="0.01">
+			<div class="labels">
+				<p>
+					few
+				</p>
+				<p>
+					many
+				</p>
+			</div>
+		</div>
+		<div id="buttons">
+			<button id="not-sure">
+				Not sure
+			</button>
+			
+			<button id="ok" style="width:120px">
+				OK
+			</button>
+		</div>
