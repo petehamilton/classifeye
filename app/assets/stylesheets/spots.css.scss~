@@ -1,0 +1,27 @@
+// Place all the styles related to the Spots controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.analysis_image {
+  display:block;
+  width:100%;
+  margin:0 auto;
+}
+
+.spot_image_container{
+  background: url('loading.gif') center center no-repeat;
+}
+
+#spot_image_row{
+  margin-left: 25px;
+  padding: 5px;
+  background:#eee;
+}
+
+#spot_questions{
+  margin-left: 25px;
+  background:#ccc;
+  min-height: 20px;
+	padding: 5px;
+	background-color:black;
+ 	color: white;
+}

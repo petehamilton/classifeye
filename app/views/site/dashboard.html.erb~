@@ -1,0 +1,1 @@
+<a href="/randomsample" ><img src="<%=image_path('dashboard.png')%>"></img></a>
