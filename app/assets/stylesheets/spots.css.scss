@@ -1,0 +1,211 @@
+// Place all the styles related to the Spots controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.analysis_image {
+  display:block;
+  width:65%;
+  margin:0 auto;
+}
+
+.spot_image_container{
+  min-height: 497px;
+  background: url('loading.gif') center center no-repeat;
+}
+
+#spot_image_row{
+  margin-left: 25px;
+  background:#eee;
+}
+
+#spot_questions{
+  background:#ccc;
+  min-height: 20px;
+}
+
+body{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.navbar-fixed-top{
+  margin-left:0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+}
+
+#main_container .row{
+  padding-top: 0px;
+  min-height: auto;
+  margin-left: 0px;
+}
+
+#main_container{
+  margin-left: 0px;
+  width: 767px;
+}
+
+body{
+  padding-top: 45px;
+}
+
+#spot_image_container{
+  background: #000;
+}
+
+.navbar .navbar-fixed-top{
+  margin-bottom: 0px;
+}
+
+#main_container .row{
+  padding-top:25px;
+  padding-bottom:25px;
+  background: #eee;
+}
+
+
+#button_row{
+  height: 170px;
+  background: url('background.png') repeat-x center bottom;
+}
+
+.feta_button{
+  height: 170px;
+  float:left;
+}
+
+.button_row{
+  .button_4{
+    .feta_button{
+      width:169px;
+      padding-left: 10px;
+      padding-right: 10px;
+      border-right: 2px solid #CCC;
+      border-left: 1px solid #FFF;
+      background: url('background.png') repeat-x center bottom;
+      cursor: pointer;
+
+
+      .density_button{
+        width:169px;
+        height: 170px;
+        background: url('buttonsprite.png') no-repeat 9px 16px;
+
+        &.density_none{
+          background-position: 9px 16px;
+        }
+
+        &.density_low{
+          background-position: -137px 16px;
+        }
+
+        &.density_medium{
+          background-position: -291px 16px;
+        }
+
+        &.density_high{
+          background-position: -461px 16px;
+        }
+      }
+      
+      .intensity_button{
+        width:169px;
+        height: 170px;
+        background: url('int_buttonsprite.png') no-repeat 9px 16px;
+        
+        &.int_none{
+          background-position: 9px 16px;
+        }
+        
+        &.int_low{
+          background-position: -137px 16px;
+        }
+        
+        &.int_medium{
+          background-position: -291px 16px;
+        }
+        
+        &.int_high{
+          background-position: -461px 16px;
+        }
+      }
+
+      &.right{
+        border-right: none;
+      }
+
+      &:hover{
+        /* background: url('background_inverse.png') repeat-x center bottom; */
+      }
+    }
+  }
+}
+
+body{
+  padding-top: 0px;
+}
+
+#nav_title{
+  float: left;
+  display: block;
+  padding: 8px 20px 12px;
+  font-size: 20px;
+  font-weight: 200;
+  line-height: 1;
+  color: white;
+  margin-left: 117px;
+  width: 300px;
+  text-align: center;
+}
+
+#skip_button_row{
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-family: 'Myriad Pro';
+  color: #dc2a7e;
+}
+
+#skip_dw{
+  line-height: 37px;
+  float: left;
+  font-size: 40px;
+  padding-left:10px;
+}
+#skip_button{
+  width: 251px;
+  height: 70px;
+  background: url('skip.jpg') repeat-x center bottom;
+  float:right;
+  margin-right: 10px;
+}
+
+#next_button{
+  width: 266px;
+  height: 70px;
+  background: url('next.jpg') repeat-x center bottom;
+  float:right;
+  margin-top:-28px;
+}
+
+.clear{
+  clear: both;
+}
+
+#thankyou{
+  font-family: 'Myriad Pro';
+  display:none;
+  padding-top:30px;
+  padding-bottom:20px;
+  padding-left: 20px;
+  font-size: 40px;
+  color: #dc2a7e;
+  margin-top: 15px;
+  padding-right: 10px;
+}
+
+#intensity_button_row{
+  display: none;
+}
+
+#spot_image{
+  cursor: pointer;
+}

@@ -1,0 +1,31 @@
+<div id="spot_image_container" class="spot_image_container">
+  <img id="spot_image" class="analysis_image" src="<%= spot_image_url(@spot) %>?t=<%= Time.now.to_i %>" alt="<%=@spot.reference%>" title="<%=@spot.reference%>"></img>
+</div>
+
+<div id="density_button_row" class="button_row">
+<%= render 'density_buttons' %>
+</div>
+
+<div id="intensity_button_row" class="button_row">
+<%= render 'intensity_buttons' %>
+</div>
+
+<div id="skip_button_row">
+  <div id="skip_dw">
+    Cant tell? Dont worry!
+    <br/>
+    Why not try the next one...
+  </div>
+  <%= link_to "", random_sample_url, {id: "skip_button"} %>
+  <div class="clear"></div>
+</div>
+
+<div id="thankyou">
+  Thankyou! Try another?
+  <%= link_to "", random_sample_url, {id: "next_button"} %>
+</div>
+
+<div id="branding_row">
+  <%= image_tag('branding.jpg', {width: '767px'}) %>
+  <div class="clear"></div>
+</div>
