@@ -1,0 +1,215 @@
+		<script src="/assets/main.js" type="text/javascript" charset="utf-8"></script>
+        <script>
+
+            function next() {
+	            //load image
+	            var img = $("<img/>");
+	            img.attr("id", "zoomParent");
+	            img.attr("src", "<%= spot_image_url(@spot) %>?t=<%= Time.now.to_i %>");
+	            img.attr("width", "600px");
+	            img.load(function() {
+		            $("#container").append($(this));
+		            document.getElementById("zoomParent").draggable = false;
+		            $("#glass").css("background-image", "url('<%= spot_image_url(@spot) %>?t=<%= Time.now.to_i %>')");
+		            currentCounter++;
+		
+		            $('#' + zoomImageID).bind('mousemove', function(event) {
+			            var evt = window.event;
+			            var x = evt.clientX;
+			            var y = evt.clientY;
+			            if(mouseDown) {
+				            moveMag(x, y);
+				            log(x + " " + y)
+			            }
+			            return false; 
+		            });
+	            })
+            }
+        </script>
+		<script src="/assets/magnify.js" type="text/javascript" charset="utf-8"></script>
+		
+		<style type="text/css" media="screen">
+			body {
+				font-family: "Varela Round";
+				font-size: 80%;
+			}
+			#container {
+				float: left;
+			}
+			#interface {
+				float: left;
+				padding: 0 20px;
+				height: 600px;
+				background: -webkit-linear-gradient(top, rgba(255,255,255,1) 1%,rgba(226,226,226,1) 100%);
+			}
+			#container canvas {
+				max-width: 500px;
+			}
+			#buttons {
+				clear: both;
+				display: block;
+			}
+			.slider {
+				display: block;
+				margin-bottom: 40px;
+				padding-bottom: 20px;
+			}
+			input[type="range"] {
+				width: 300px;
+			}
+			.labels {
+				clear: both;
+			}
+			.labels p {
+				text-transform: uppercase;
+				float: right;
+				font-size: 13px;
+				color: hsl(0, 0%, 45%);
+			}
+			.labels p:first-child {
+				float: left;
+			}
+			button {
+				padding: 10px;
+			}
+			#buttons button {
+				float: right;
+			}
+			#buttons button:first-child {
+				float: left;
+			}
+			#intensity .preview {
+				background-repeat: no-repeat;
+				background-image: url("/assets/sliders/sprite.png");
+				border: 1px solid gray;
+			}
+			#quantity .preview {
+				background-repeat: no-repeat;
+				background-image: url("/assets/sliders/sprite-quantity.jpg");
+			}
+			.preview {
+				width: 50px;
+				height: 50px;
+				position: relative;
+				left: 0px;
+				/*border: 1px solid #333;*/
+				clear: left;
+				margin-bottom: 8px;
+				margin-top: -14px;
+			}
+			#menu {
+				position: absolute;
+				top: 52px;
+				background-color: white;
+			}
+			#menu ul {
+				padding: 0;
+				margin: 0;
+			}
+			#menu li {
+				padding: 15px 20px;
+				text-indent: 0;
+				list-style: none;
+				color: #999;
+				border-bottom: 1px solid #ddd;
+			}
+			#glass {
+				width: 200px;
+				height: 200px;
+				overflow: hidden;
+				position: absolute;
+				border-radius: 200px;
+				display: none;
+				background-repeat: no-repeat;
+				box-shadow: hsla(0, 0%, 47%, 0.699219) 0px 0px 10px;
+				background-color: white;
+			}
+			h1 {
+				clear: both;
+				font-size: 16px;
+				color: dimGray;
+				font-weight: normal;
+				margin: 0;
+				width: 282px;
+				margin-bottom: 25px;
+				margin-top: 20px;
+			}
+			input[type='range'] {
+				-webkit-appearance: none !important;
+				border-radius: 10px;
+				background: #333;
+				height: 7px;
+			}
+			input[type='range']::-webkit-slider-thumb {
+				-webkit-appearance: none !important;
+				background: white;
+				box-shadow: hsla(0, 0%, 47%, 1) 0px 0px 5px;
+				border-radius: 20px;
+				height: 20px;
+				width: 20px;
+				cursor: pointer;
+			}
+			
+			#not-sure {
+				padding:10px;
+				margin:0;
+				background-color: #999;
+				color:#fff;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div id="container"></div>
+		<div id="interface">
+			<h1>How many cancer cells can you see?</h1>
+			<div id="quantity" class="slider" >
+				<div class="preview"></div>
+				<input type="range" min="0" max="1" value="0.5" step="0.01">
+				<div class="labels">
+					<p>
+						few
+					</p>
+					<p>
+						a lot
+					</p>
+				</div>
+			</div>
+			<h1>What proportion of the cancer cells are stained?</h1>
+			<div id="frequency" class="slider" >
+				<div class="preview"></div>
+				<input type="range" min="0" max="1" value="0.5" step="0.01">
+				<div class="labels">
+					<p>
+						none
+					</p>
+					<p>
+						all
+					</p>
+				</div>
+			</div>
+			<h1>How intense is the staining?</h1>
+			<div id="intensity" class="slider">
+				<div class="preview"></div>
+				<input type="range" min="0" max="1" value="0.5" step="0.01">
+				<div class="labels">
+					<p>
+						weak
+					</p>
+					<p>
+						strong
+					</p>
+				</div>
+			</div>
+			<div id="buttons">
+				<p id="not-sure" style="float:left">
+					Not sure?
+				</p>
+				<!--<button id="switch">
+				switch
+				</button>-->
+				<button id="ok" style="width:120px" syle="float:left">
+					OK
+				</button>
+			</div>
+			<div id="glass"></div>

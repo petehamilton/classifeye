@@ -1,0 +1,17 @@
+class ApplicationController < ActionController::Base
+  protect_from_forgery
+  helper :all
+
+  private
+  
+  def mobile_device?
+<<<<<<< HEAD
+    return true
+=======
+    return true # Fake mobile device for now
+>>>>>>> 55f52efceb68382e3f147b6357c19f8a7a38efb8
+    request.user_agent =~ /Mobile|webOS/
+  end
+  
+  helper_method :mobile_device?
+end

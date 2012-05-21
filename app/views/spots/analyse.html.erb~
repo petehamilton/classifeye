@@ -1,0 +1,42 @@
+<div class="spot">
+  <div id="spot_image_container" class="spot_image_container">
+    <img id="spot_image" class="analysis_image" src="<%= spot_image_url(@spot) %>?t=<%= Time.now.to_i %>" alt="<%=@spot.reference%>" title="<%=@spot.reference%>"></img>
+  </div>
+	<div id="spot_question">What's the density of the cell?</div>
+</div>
+<div class="row">	
+	<div id="density">
+		<div id="none"></div>
+		<div id="low"></div>
+		<div id="medium"></div>
+		<div id="high"></div>
+	</div>
+</div>
+<div class="row">	
+<div id="skip">
+		<div>
+			Can't tell? Don't worry! Why not try the next one...
+		</div>
+		<div id="skip_button"><a href="">Skip</a></div>
+	</div>
+</div>
+<!--
+<div class="span2" id="spot_questions">
+  <br/>
+  Button One
+  <br/>
+  <br/>
+</div>
+<div class="span2" id="spot_questions">
+  <br/>
+  Button Two
+  <br/>
+  <br/>
+</div>
+<div class="span2" id="spot_questions">
+  <br/>
+  Button Two
+  <br/>
+  <br/>
+</div>
+-->
