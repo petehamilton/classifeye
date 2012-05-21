@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Test</title>
+		<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+		<![endif]-->
+		<link href="images/favicon.ico" rel="shortcut icon">
+		<link href="images/apple-touch-icon.png" rel="apple-touch-icon">
+		<link href="images/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
+		<link href="images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
+		<script src="jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/magnify.js" type="text/javascript" charset="utf-8"></script>
+		<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+		<style type="text/css" media="screen">
+			body {
+				font-family: "Varela Round";
+				font-size: 80%;
+			}
+			#container {
+				float: left;
+				cursor: url('images/glass.cur'), auto;
+			}
+			#interface {
+				float: left;
+				padding: 0 20px;
+				height: 600px;
+				background: -webkit-linear-gradient(top, rgba(255,255,255,1) 1%,rgba(226,226,226,1) 100%);
+			}
+			#container canvas {
+				max-width: 500px;
+			}
+			#buttons {
+				clear: both;
+				display: block;
+			}
+			.slider {
+				display: block;
+				margin-bottom: 40px;
+				padding-bottom: 20px;
+			}
+			input[type="range"] {
+				width: 300px;
+			}
+			.labels {
+				clear: both;
+			}
+			.labels p {
+				text-transform: uppercase;
+				float: right;
+				font-size: 10px;
+			}
+			.labels p:first-child {
+				float: left;
+			}
+			button {
+				cursor:pointer;
+				padding: 10px;
+				border: none;
+			}
+			#ok {
+				float: right;
+				color: #fff;
+				background-color: #2c90ff;
+			}
+			#buttons button:first-child {
+				float: left;
+			}
+			#intensity .preview {
+				background-repeat: no-repeat;
+				background-image: url("images/sprite.png");
+			}
+			
+			#frequency .preview {
+				box-shadow:none;
+				border:none;
+			}
+			.preview {
+				border: 1px solid #999;
+			}
+			#quantity .preview {
+				background-repeat: no-repeat;
+				background-image: url("images/sprite-quantity.jpg");
+			}
+			.preview {
+				width: 50px;
+				height: 50px;
+				position: relative;
+				left: 0px;
+				/*border: 1px solid #333;*/
+				clear: left;
+				margin-bottom: 8px;
+				margin-top: -14px;
+			}
+			#menu {
+				position: absolute;
+				top: 52px;
+				background-color: white;
+			}
+			#menu ul {
+				padding: 0;
+				margin: 0;
+			}
+			#menu li {
+				padding: 15px 20px;
+				text-indent: 0;
+				list-style: none;
+				color: #999;
+				border-bottom: 1px solid #ddd;
+			}
+			#glass {
+				cursor: url('images/glass.cur'), auto;width: 200px;
+				height: 200px;
+				overflow: hidden;
+				position: absolute;
+				border-radius: 200px;
+				display: none;
+				background-repeat: no-repeat;
+				box-shadow: hsla(0, 0%, 47%, 0.9) 0px 0px 10px;
+				background-color: white;
+			}
+			h1 {
+				
+				clear: both;
+				font-size: 16px;
+				color: dimGray;
+				font-weight: normal;
+				margin: 0;
+				width: 282px;
+				margin-bottom: 25px;
+				margin-top: 20px;
+			}
+			input[type='range'] {
+				-webkit-appearance: none !important;
+				border-radius: 10px;
+				background: #333;
+				height: 7px;
+			}
+			input[type='range']::-webkit-slider-thumb {
+				-webkit-appearance: none !important;
+				background: white;
+				box-shadow: hsla(0, 0%, 47%, 1) 0px 0px 5px;
+				border-radius: 20px;
+				height: 20px;
+				width: 20px;
+				cursor: pointer;
+			}
+			
+			#not-sure {
+				padding: 10px;
+				margin: 0;
+				background-color: #999;
+				color: #fff;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div id="container"></div>
+		<div id="interface">
+			<h1>How many cancer cells can you see?</h1>
+			<div id="quantity" class="slider" >
+				<div class="preview"></div>
+				<input type="range" min="0" max="1" value="0.5" step="0.01">
+				<div class="labels">
+					<p>
+						few
+					</p>
+					<p>
+						a lot
+					</p>
+				</div>
+			</div>
+			<h1>What proportion of the cancer cells are stained?</h1>
+			<div id="frequency" class="slider" >
+				<div class="preview"></div>
+				<input type="range" min="0" max="1" value="0.5" step="0.01">
+				<div class="labels">
+					<p>
+						none
+					</p>
+					<p>
+						all
+					</p>
+				</div>
+			</div>
+			<h1>How intense is the staining?</h1>
+			<div id="intensity" class="slider">
+				<div class="preview"></div>
+				<input type="range" min="0" max="1" value="0.5" step="0.01">
+				<div class="labels">
+					<p>
+						weak
+					</p>
+					<p>
+						strong
+					</p>
+				</div>
+			</div>
+			<div id="buttons">
+				<button id="not-sure" style="float:left; cursor:pointer">
+					Not sure?
+				</button>
+				<!--<button id="switch">
+				switch
+				</button>-->
+				<button id="ok" style="width:120px" syle="float:left">
+					OK
+				</button>
+			</div>
+			<div id="glass"></div>
+	</body>
+</html>

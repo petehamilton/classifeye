@@ -1,0 +1,22 @@
+<html>
+<head>
+<script type='text/javascript' src='jquery.js'></script>
+<script>
+    var imageDimensions={width:1976,height:1978};
+    var zoomImageID="zoomParent";
+</script>
+<script type='text/javascript' src='magnify.js'></script>
+</head>
+<body style="margin:0px;">
+<div id="console" style="position:absolute;"></div>
+
+<div style="width:100%;overflow:hidden;">
+    <div id="glass" style="width:200px;height:200px;overflow:hidden;position:absolute;border:5px solid grey;border-radius: 200px;background:url('test_old.jpg') 0 0 no-repeat #ffffff;display: none;">
+    </div>
+	<div style="margin: 0 auto; width:600px;">
+		<img id="zoomParent" src="test_old.jpg" style="width:600px;" />
+	</div>
+</div> 
+
+</body>
+</html>
